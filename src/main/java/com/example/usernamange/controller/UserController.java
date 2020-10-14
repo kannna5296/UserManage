@@ -31,4 +31,15 @@ public class UserController {
         model.addAttribute("userlist", userlist);
         return "index";
     }
+
+    /**
+     * ユーザー情報一覧画面を表示
+     * @param model Model
+     * @return ユーザー情報一覧画面のHTML
+     */
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
+    public String createUser(Model model) {
+        model.addAttribute("title", "新規作成");
+        return "create";
+    }
 }
