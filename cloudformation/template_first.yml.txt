@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Metadata:
+    Generator: "former2"
+Description: ""
+Resources:
+    EC2Instance:
+        Type: "AWS::EC2::Instance"
+
+    EC2VPC:
+        Type: "AWS::EC2::VPC"
+
+    EC2Subnet:
+        Type: "AWS::EC2::Subnet"
+
+    EC2Subnet2:
+        Type: "AWS::EC2::Subnet"
+
+    EC2Subnet3:
+        Type: "AWS::EC2::Subnet"
+
+    EC2InternetGateway:
+        Type: "AWS::EC2::InternetGateway"
+
+    EC2EIP:
+        Type: "AWS::EC2::EIP"
+
+    EC2EIPAssociation:
+        Type: "AWS::EC2::EIPAssociation"
+
+    EC2RouteTable:
+        Type: "AWS::EC2::RouteTable"
+
+    EC2RouteTable2:
+        Type: "AWS::EC2::RouteTable"
+
+    RDSDBInstance:
+        Type: "AWS::RDS::DBInstance"
+
+    RDSDBSubnetGroup:
+        Type: "AWS::RDS::DBSubnetGroup"
+
+
