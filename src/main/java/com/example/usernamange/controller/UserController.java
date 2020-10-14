@@ -1,27 +1,34 @@
 package com.example.usernamange.controller;
 
-import org.springframework.jdbc.core.JdbcTemplate;
+import com.example.usernamange.entity.User;
+import com.example.usernamange.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class UserController {
-    final
-    JdbcTemplate jdbcTemplate;
 
-    public UserController(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+    /**
+     * ユーザー情報 Service
+     */
+    @Autowired
+    UserService userService;
 
-    @RequestMapping("/")
-    String index(Model model) {
-        List<Map<String, Object>> users = jdbcTemplate.queryForList("select * from sample.users");
-        model.addAttribute("title", "ユーザー一覧");
-        model.addAttribute("users", users);
+    /**
+     * ユーザー情報一覧画面を表示
+     * @param model Model
+     * @return ユーザー情報一覧画面のHTML
+     */
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String displayList(Model model) {
+        List<User> userlist = userService.searchAll();
+        model.addAttribute("title", "ユーザ一覧");
+        model.addAttribute("userlist", userlist);
         return "index";
     }
 }
