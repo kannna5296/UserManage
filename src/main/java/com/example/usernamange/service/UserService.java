@@ -29,4 +29,12 @@ public class UserService {
     public User save(User user) {
         return userRepository.save(user);
     }
+
+    public User findOne(Long id) {
+        return userRepository.getOne(id);
+    }
+
+    public void delete(Long id) {
+        userRepository.deleteById(id);
+    }
 }

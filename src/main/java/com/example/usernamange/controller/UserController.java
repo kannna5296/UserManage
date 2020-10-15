@@ -47,4 +47,12 @@ public class UserController {
         userService.save(user);
         return "redirect:/user";
     }
+
+
+    @GetMapping("{id}/edit")
+    public String edit(@PathVariable Long id, Model model) { // ⑤
+        User user = userService.findOne(id);
+        model.addAttribute("user", user);
+        return "players/edit";
+    }
 }
