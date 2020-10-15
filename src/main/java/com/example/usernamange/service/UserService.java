@@ -25,7 +25,6 @@ public class UserService {
      * ユーザーtableの内容を全検索
      */
     public List<User> findAll() {
-        // ユーザーTBLの内容を全検索
         return userRepository.findAll();
     }
 
