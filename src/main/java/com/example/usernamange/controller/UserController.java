@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * ユーザー情報 Controller
+ */
 @Controller
 @RequestMapping("/user")
 public class UserController {
