@@ -8,12 +8,19 @@
     <script src="/js/bootstrap.js"></script>
 </head>
 <body>
-<h1 th:text="${title}"></h1>
-ここに新規追加表を作ります
+<div class="container">
+<h1>ユーザ新規作成</h1>
 <form th:action="@{/user}" th:method="post">
-    名前<input class="form-control" type="text" name="name" />
-    年齢<input class="form-control" type="number" name="age" />
+    <div class="form-group">
+        <label class="control-label">名前</label>
+        <input class="form-control" type="text" name="name" />
+    </div>
+    <div class="form-group">
+        <label class="control-label">年齢</label>
+        <input class="form-control" type="text" name="age" />
+    </div>
     <button class="btn btn-default" type="submit">作成</button>
 </form>
+</div>
 </body>
 </html>

@@ -48,7 +48,6 @@ public class UserController {
         return "redirect:/user";
     }
 
-
     @GetMapping("{id}/edit")
     public String edit(@PathVariable Long id, Model model) { // ⑤
         User user = userService.findOne(id);
