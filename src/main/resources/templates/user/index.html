@@ -2,26 +2,15 @@
 <html lang="ja" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        table {
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 3px 5px 3px 5px;
-            border: 1px solid #aaa;
-        }
-
-        th {
-            background-color: #eee;
-        }
-    </style>
+    <title>ユーザ一覧</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
 </head>
 <body>
-<h1 th:text="${title}"></h1>
-<a href="/create">新規追加</a>
-<table>
+<div class="container">
+<h1>ユーザ一覧</h1>
+<table class="table">
     <thead>
     <tr>
         <th>#</th>
@@ -41,6 +30,7 @@
     </tr>
     </tbody>
 </table>
-
+    <a class="btn btn-default" href="/user/new">新規作成</a>
+</div>
 </body>
 </html>

@@ -5,12 +5,14 @@ import com.example.usernamange.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 
     /**
@@ -19,17 +21,17 @@ public class UserController {
     @Autowired
     UserService userService;
 
+
     /**
      * ユーザー情報一覧画面を表示
      * @param model Model
      * @return ユーザー情報一覧画面のHTML
      */
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String displayList(Model model) {
-        List<User> userlist = userService.searchAll();
-        model.addAttribute("title", "ユーザ一覧");
+    @GetMapping
+    public String index(Model model) {
+        List<User> userlist = userService.findAll();
         model.addAttribute("userlist", userlist);
-        return "index";
+        return "user/index";
     }
 
     /**
@@ -37,9 +39,8 @@ public class UserController {
      * @param model Model
      * @return ユーザー情報一覧画面のHTML
      */
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
-    public String createUser(Model model) {
-        model.addAttribute("title", "新規作成");
-        return "create";
+    @GetMapping("new")
+    public String newUser(Model model) {
+        return "user/new";
     }
 }

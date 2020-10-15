@@ -21,7 +21,7 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public List<User> searchAll() {
+    public List<User> findAll() {
         // ユーザーTBLの内容を全検索
         return userRepository.findAll();
     }

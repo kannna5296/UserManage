@@ -9,14 +9,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * ユーザー情報 Entity
  */
 @Entity
-@Data
 @Table(name="users")
-public class User implements Serializable {
+public class User{
 
     /**
      * ID
@@ -29,13 +30,11 @@ public class User implements Serializable {
     /**
      * 名前
      */
-    @Column(name="name")
     public String name;
 
     /**
      * 年齢
      */
-    @Column(name="age")
     public int age;
 
     /**
@@ -49,4 +48,44 @@ public class User implements Serializable {
      */
     @Column(name="updated_date")
     public Date updatedDate;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
+    }
 }
