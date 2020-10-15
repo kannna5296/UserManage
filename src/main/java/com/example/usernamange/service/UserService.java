@@ -21,19 +21,31 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
+    /**
+     * ユーザーtableの内容を全検索
+     */
     public List<User> findAll() {
         // ユーザーTBLの内容を全検索
         return userRepository.findAll();
     }
 
+    /**
+     * ユーザーtableに1件保存
+     */
     public User save(User user) {
         return userRepository.save(user);
     }
 
+    /**
+     * ユーザーtableの内容を1件検索
+     */
     public User findOne(Long id) {
         return userRepository.getOne(id);
     }
 
+    /**
+     * ユーザーtableの内容を1件削除
+     */
     public void delete(Long id) {
         userRepository.deleteById(id);
     }
