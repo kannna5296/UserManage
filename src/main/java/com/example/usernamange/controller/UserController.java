@@ -52,6 +52,26 @@ public class UserController {
     public String edit(@PathVariable Long id, Model model) { // ⑤
         User user = userService.findOne(id);
         model.addAttribute("user", user);
-        return "players/edit";
+        return "user/edit";
+    }
+
+    @GetMapping("{id}")
+    public String show(@PathVariable Long id, Model model) {
+        User user = userService.findOne(id);
+        model.addAttribute("user", user);
+        return "user/show";
+    }
+
+    @PutMapping("{id}")
+    public String update(@PathVariable Long id, @ModelAttribute User user) {
+        user.setId(id);
+        userService.save(user);
+        return "redirect:/user";
+    }
+
+    @DeleteMapping("{id}")
+    public String destroy(@PathVariable Long id) {
+        userService.delete(id);
+        return "redirect:/user";
     }
 }
