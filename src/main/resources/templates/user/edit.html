@@ -13,12 +13,15 @@
     <form th:action="@{/user/{id}(id=*{id})}" th:method="put" th:object="${user}">
         <div class="form-group">
             <label class="control-label">名前</label>
-            <!-- ① -->
             <input class="form-control" type="text" th:field="*{name}" />
         </div>
         <div class="form-group">
             <label class="control-label">年齢</label>
-            <input class="form-control" type="number" th:field="*{age}" />
+            <input class="form-control" type="text" th:field="*{age}"/>
+        </div>
+        <div class="form-group">
+            <input type="hidden" class="form-control" th:field="*{createdDate}" readonly/>
+            <input type="hidden" class="form-control" th:field="*{updatedDate}" readonly/>
         </div>
         <button class="btn btn-default" type="submit">更新</button>
     </form>

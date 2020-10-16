@@ -2,6 +2,7 @@ package com.example.usernamange.controller;
 
 import com.example.usernamange.entity.User;
 import com.example.usernamange.service.UserService;
+import java.sql.Timestamp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -90,7 +91,8 @@ public class UserController {
      */
     @PutMapping("{id}")
     public String update(@PathVariable Long id, @ModelAttribute User user) {
-        user.setId(id);
+        Timestamp now = new Timestamp(System.currentTimeMillis());
+        user.setUpdatedDate(now);
         userService.save(user);
         return "redirect:/user";
     }

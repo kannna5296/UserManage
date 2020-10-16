@@ -1,7 +1,8 @@
 package com.example.usernamange.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -41,13 +42,13 @@ public class User{
      * 登録日時
      */
     @Column(name="created_date")
-    public Date createdDate;
+    public Timestamp createdDate;
 
     /**
      * 更新日時
      */
     @Column(name="updated_date")
-    public Date updatedDate;
+    public Timestamp updatedDate;
 
     public Long getId() {
         return id;
@@ -61,11 +62,11 @@ public class User{
         return age;
     }
 
-    public Date getCreatedDate() {
+    public Timestamp getCreatedDate() {
         return createdDate;
     }
 
-    public Date getUpdatedDate() {
+    public Timestamp getUpdatedDate() {
         return updatedDate;
     }
 
@@ -81,11 +82,11 @@ public class User{
         this.age = age;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(Timestamp createdDate) {
         this.createdDate = createdDate;
     }
 
-    public void setUpdatedDate(Date updatedDate) {
+    public void setUpdatedDate(Timestamp updatedDate) {
         this.updatedDate = updatedDate;
     }
 }
